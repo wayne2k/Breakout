@@ -3,16 +3,11 @@ using System.Collections;
 
 namespace RollRoti.Breakout
 {
-	public class DeadZone : MonoBehaviour {
-
-		// Use this for initialization
-		void Start () {
-		
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
+	public class DeadZone : MonoBehaviour 
+	{
+		void OnTriggerEnter (Collider other)
+		{
+			GM.Instance.LooseLife ();
 		}
 	}
 }

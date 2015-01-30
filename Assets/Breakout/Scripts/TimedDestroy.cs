@@ -3,16 +3,13 @@ using System.Collections;
 
 namespace RollRoti.Breakout
 {
-	public class TimedDestroy : MonoBehaviour {
+	public class TimedDestroy : MonoBehaviour 
+	{
+		public float destroyTime = 1f;
 
-		// Use this for initialization
-		void Start () {
-		
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
+		void Start ()
+		{
+			Destroy (gameObject, destroyTime);
 		}
 	}
 }

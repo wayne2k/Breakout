@@ -3,16 +3,27 @@ using System.Collections;
 
 namespace RollRoti.Breakout
 {
-	public class Ball : MonoBehaviour {
+	public class Ball : MonoBehaviour 
+	{
+		public float ballInitialVelocity = 600f;
 
-		// Use this for initialization
-		void Start () {
-		
+		bool _ballInPlay;
+		Rigidbody _rb;
+
+		void Awake ()
+		{
+			_rb = GetComponent <Rigidbody> ();
 		}
-		
-		// Update is called once per frame
-		void Update () {
-		
+
+		void Update ()
+		{
+			if (Input.GetButtonDown ("Fire1") && _ballInPlay == false)
+			{
+				transform.parent = null;
+				_ballInPlay = true;
+				_rb.isKinematic = false;
+				_rb.AddForce (new Vector3 (ballInitialVelocity, ballInitialVelocity, 0f));
+			}
 		}
 	}
 }

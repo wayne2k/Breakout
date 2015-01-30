@@ -3,16 +3,15 @@ using System.Collections;
 
 namespace RollRoti.Breakout
 {
-	public class Bricks : MonoBehaviour {
+	public class Bricks : MonoBehaviour 
+	{
+		public GameObject brickParticle;
 
-		// Use this for initialization
-		void Start () {
-		
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
+		void OnCollisionEnter (Collision col)
+		{
+			Instantiate (brickParticle, transform.position, Quaternion.identity);
+			GM.Instance.DestroyBrick ();
+			Destroy (gameObject);
 		}
 	}
 }
